@@ -1,0 +1,90 @@
+##Configuration for BeastWithdraw by MrAxeTv
+##Plugin use intended for MC 1.7 - 1.16+
+##Notic all values of withdraw amount are stored as NBT data on items so make sure other plugins for storing items have support for storing NBT data.
+##--------------------------------------------------------------------------------------------------------##
+##Expiriance bottle xp storing.
+XpBottle:
+    ##Set up your item display name & lores how do you like.
+    ##This is part of configuration for item which player will get when they withdraw there xp /Xpbottle <xp>.
+    Player:
+      Name: "&a&lExperience-Bottle &7(Throw)"
+      Lore:
+        - "&dValue:&r %value% XP"
+        - "&dEnchanter:&r %player%"
+
+    ##This is part of configuration for item withdraw by staff or console /Xpbottle <xp> <player> <bottle-amount>.
+    Server:
+      Name: "&a&lExperience-Bottle &7(Throw)"
+      Lore:
+        - "&dValue:&r %value% XP"
+        - "&dEnchanter:&r Thinkerer"
+    CustomModel:
+      #Custm model data is supported on 1.14+ versions
+      Data: 0
+      AmountModelData:
+        #Amount Model Data will use different Custom models per specific amount
+        #for example all bottles from 100xp up to 999xp will use CustomModelData: 1 and all bottles with 1000xp or more will use CustomModelData:2
+        #you can add as many models you want just use syntax shown below in default config!
+        Enabled: true
+        Range:
+          - "100-Data:1"
+          - "1000-Data:2"
+    ##This is invisible lore name in which is stored amount of xp change the name if you want disable old bottles.
+    NBTLore: "bWithdrawXp"
+
+    ##Minimum amount which can be withdrawn to bottle.
+    Min: 25
+    ##Maximum amount which can be withdrawn to bottle.
+    Max: 10000
+
+    ##Min and Max amount per permissions.
+    ##Permission should be BeastWithdraw.PermNotes.<name_of_perm>
+    ##Here is one example: if player has "BeastWithdraw.PermNotes.Tomato" permission there max amount which they will be able to withdraw min 20 and max 50000.
+    ##You can rename this permissions settings and add new ones how you like.
+    ##If PermNotes are enabled they will override default min and max setting if player has any of permissions for this groups.
+    PermNotes:
+      Enabled: false
+      Tomato:
+        Min: 20
+        Max: 50000
+      Potato:
+        Min: 10
+        Max: 100000
+
+    ##Charge "Tax" or "Fee" to players when they withdraw XpBottle.
+    Charges:
+      ##Tax will take specified percentage amount when player withdraw's XpBottle (0.01% to 100% Possible values).
+      ##Bypass Tax permission "BeastWithdraw.XpBottle.ByPass.Tax"
+      Tax:
+        Enabled: false
+        Percentage: 5
+      ##Fee will charge money when player withdraw's XpBottle.
+      ##Bypass Fee permission "BeastWithdraw.XpBottle.ByPass.Fee"
+      Fee:
+        Enabled: false
+        Cost: 100
+
+    ##Play a sounds when player withdraw or redeem Xp!
+    ##Sounds  for 1.9 and above: https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/Sound.html
+    ##Sounds for 1.7 and 1.8: https://www.spigotmc.org/wiki/cc-sounds-list/
+    Sounds:
+      Withdraw:
+        Sound: "ENTITY_GENERIC_EXPLODE"
+        Enabled: true
+      Redeem:
+        Sound: "ENTITY_EXPERIENCE_ORB_PICKUP"
+        Enabled: true
+
+    ##Allow droping player xp to XpBottle on there death.
+    DropOnDeath: false
+
+    ##Set up procenttage of droped xp in bottle. Min Chance 1 / Max Chance 100 going over it or under it will break plugin!
+    DropPercentage: 100
+
+    ##Set up aliases for /Xpbottle command
+    Aliases: [xpb, beastxpb, bottle]
+
+    ##By setting this option to true xp from bottle will be automatically given to player it won't be dropped on floor.
+    AutoCollect: true
+##--------------------------------------------------------------------------------------------------------##
+ConfigVersion: 1.0

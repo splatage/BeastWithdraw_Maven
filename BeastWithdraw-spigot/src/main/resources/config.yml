@@ -1,0 +1,18 @@
+##Configuration for BeastWithdraw by MrAxeTv
+##Plugin use intended for MC 1.7 - 1.16+
+##Notic all values of withdraw amount are stored as NBT data on items so make sure other plugins for storing items have support for storing NBT data.
+Settings:
+  Withdraws:
+    XpBottle:
+      Enabled: true
+    CashNote:
+      Enabled: true
+  ##Cancle villager treading with withdraw items.
+  CancelVillagerTrade: true
+  ##Disable using withdraw items in crafting.
+  CancelCrafting: true
+  ##Drop withdraw item on floor if there is no space in player inventory
+  WithdrawDropFloor: true
+
+##Config version (PLEASE DO NOT EDIT & DON'T COPY PAST OLD CONFIG OVER)
+ConfigVersion: 2.6
