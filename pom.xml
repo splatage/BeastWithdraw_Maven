@@ -47,8 +47,8 @@
     </build>
 
     <modules>
-        <module>beastwithdraw-common</module>
-        <module>beastwithdraw-spigot</module>
-        <module>beastwithdraw-sponge</module>
+        <module>BeastWithdraw-Common</module>
+        <module>BeastWithdraw-Spigot</module>
+        <module>BeastWithdraw-Sponge</module>
     </modules>
 </project>
